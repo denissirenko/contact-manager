@@ -9,8 +9,8 @@ const ContactList = () => {
     sort: "created:desc",
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching contacts</div>;
+  if (isLoading) return <div className="px-4 pt-6">Loading...</div>;
+  if (error) return <div className="px-4 pt-6">Error fetching contacts</div>;
 
   const resources = data?.resources || [];
 
