@@ -1,8 +1,8 @@
 import React from "react";
 
-const Title = ({ className = "", children }) => {
+const Title = ({ tag: Tag = "h2", className = "", children }) => {
   return (
-    <h2 className={`${className} w-full font-semibold size-5`}>{children}</h2>
+    <Tag className={`w-full font-semibold size-5 ${className}`}>{children}</Tag>
   );
 };
 

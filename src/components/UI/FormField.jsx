@@ -1,6 +1,13 @@
 import React from "react";
 
-const FormField = ({ id, label, type, placeholder, register, errors }) => {
+const FormField = ({
+  id,
+  label = null,
+  type,
+  placeholder,
+  register,
+  errors,
+}) => {
   return (
     <div className="mb-4 relative">
       {label && (
