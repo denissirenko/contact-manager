@@ -26,8 +26,15 @@ const ContactDetails = () => {
   });
 
   const onSubmit = (formData) => {
-    const tagsArray = formData.tags.split(",").map((tag) => tag.trim());
-    addTags({ id, tags: tagsArray });
+    let contactTags = [];
+    if (data && data.resources.length > 0) {
+      const { tags } = data.resources[0];
+      contactTags = tags;
+    }
+    const newTagsArray = formData.tags.split(",").map((tag) => tag.trim());
+    const existingTagsArray = contactTags.map(({ tag }) => tag);
+    const allTagsArray = [...new Set([...existingTagsArray, ...newTagsArray])];
+    addTags({ id, tags: allTagsArray });
     reset();
   };
 
